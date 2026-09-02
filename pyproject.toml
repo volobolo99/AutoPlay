@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "autoplay"
+version = "0.1.0"
+description = "Modular perception, world-model, planning and control framework for game automation research"
+requires-python = ">=3.11"
+dependencies = [
+  "numpy>=1.26",
+  "opencv-python>=4.9",
+  "mss>=9.0",
+]
+
+[project.optional-dependencies]
+vision = ["ultralytics>=8.3"]
+pathfinding = ["pathfinding>=1.0.16"]
+capture = ["windows-capture>=1.0"]
+all = ["ultralytics>=8.3", "pathfinding>=1.0.16", "windows-capture>=1.0"]
+test = ["pytest>=8"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
